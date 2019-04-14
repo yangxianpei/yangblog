@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="杨小贤"><meta name="renderer" content="webkit"><meta name="copyright" content="杨小贤"><meta name="keywords" content="千城"><meta name="description" content="彪悍的人生不需要解释！"><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>FIEX布局 · Mr.Yang Blog</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/1.jpg"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
+    }
+    return function(){
+      return ret;
+    };
+  })();
+
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
+    }
+
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
+    }
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
+
+
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script></head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/1.jpg"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">杨小贤</div><div class="profile-signature">for me</div><div class="friends"><div>FRIENDS</div><span><a href="//github.com/chenxingyu0830" target="_black">friendA</a></span><span><a href="//github.com/Longlongyu" target="_black">friendB</a></span><span><a href="//github.com/" target="_black">friendC</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a>Mr.Yang's Blog</a></div><div class="intro-nav-label-box"><a href="/">首页</a><a href="/about/">关于</a><a href="/tags/">标签</a><a href="/categories/">分类</a><a href="/archives/">归档</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">首页</a><a href="/about/">关于</a><a href="/tags/">标签</a><a href="/categories/">分类</a><a href="/archives/">归档</a></div></i><div class="clear"></div></section></nav><h1 class="post-title">FIEX布局</h1><div class="post-intros"><div class="post-intro-meta"><span class="post-intro-time"><i class="post-intro-calendar fa fa-calendar"></i><span>2019-02-24</span></span><span class="post-intro-tags"><a class="intro-tag fa fa-tag" href="javascript:void(0)" date-tags="CSS"> CSS</a></span></div></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><article class="article-entry" id="post"><h1 id="FLEX布局"><a href="#FLEX布局" class="headerlink" title="FLEX布局"></a>FLEX布局</h1><ol>
+<li>块级布局侧重垂直方向，行内布局侧重水平方向，FLEX布局是与方向无关的。</li>
+<li>FLEX布局可以实现空间自动分配，自动对齐（flexible：弹性）</li>
+<li>FLEX适用于简单的线性布局，更复杂的布局要交给grid布局</li>
+</ol>
+<p>阮一峰博客完美全解（<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html）" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html）</a></p>
+<p><img src="/2019/02/24/FIEX布局/a.png" alt="tu"></p>
+<h2 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h2><ol>
+<li>flex-direction </li>
+<li>flex-wrap</li>
+<li>flex-flow</li>
+<li>justify-content</li>
+<li>align-items</li>
+<li>align-content</li>
+</ol>
+<h3 id="1-flex-direction-属性决定主轴的方向（即项目的排列方向）"><a href="#1-flex-direction-属性决定主轴的方向（即项目的排列方向）" class="headerlink" title="1. flex-direction  属性决定主轴的方向（即项目的排列方向）"></a>1. flex-direction  属性决定主轴的方向（即项目的排列方向）</h3><p> flex-direction: row | row-reverse | column | column-reverse;</p>
+<h3 id="2-flex-wrap-属性-默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。"><a href="#2-flex-wrap-属性-默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。" class="headerlink" title="2. flex-wrap  属性 默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。"></a>2. flex-wrap  属性 默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。</h3><pre><code>flex-wrap: nowrap | wrap | wrap-reverse
+</code></pre><h3 id="3-flex-flow-属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row-nowrap。"><a href="#3-flex-flow-属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row-nowrap。" class="headerlink" title="3.flex-flow  属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。"></a>3.flex-flow  属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。</h3><pre><code>flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;
+</code></pre><h3 id="4-justify-content-属性定义了项目在主轴上的对齐方式。"><a href="#4-justify-content-属性定义了项目在主轴上的对齐方式。" class="headerlink" title="4.justify-content  属性定义了项目在主轴上的对齐方式。"></a>4.justify-content  属性定义了项目在主轴上的对齐方式。</h3><pre><code>justify-content: flex-start | flex-end | center | space-between | space-around;
+</code></pre><h3 id="5-align-items-属性定义项目在交叉轴上如何对齐。"><a href="#5-align-items-属性定义项目在交叉轴上如何对齐。" class="headerlink" title="5.align-items  属性定义项目在交叉轴上如何对齐。"></a>5.align-items  属性定义项目在交叉轴上如何对齐。</h3><pre><code>align-items: flex-start | flex-end | center | baseline | stretch;
+</code></pre><h3 id="6-align-content-属性"><a href="#6-align-content-属性" class="headerlink" title="6.align-content  属性"></a>6.align-content  属性</h3><pre><code>align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+</code></pre><h2 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h2><ol>
+<li>order</li>
+<li>flex-grow</li>
+<li>flex-shrink</li>
+<li>flex-basis</li>
+<li>flex</li>
+<li>align-self</li>
+</ol>
+<h3 id="order-属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。"><a href="#order-属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。" class="headerlink" title="order  属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。"></a>order  属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</h3><pre><code>order: &lt;integer&gt;;
+</code></pre><h3 id="flex-grow-属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。"><a href="#flex-grow-属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。" class="headerlink" title="flex-grow  属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。"></a>flex-grow  属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</h3><pre><code>flex-grow: &lt;number&gt;; /* default 0 */
+</code></pre><h3 id="flex-shrink-属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。"><a href="#flex-shrink-属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。" class="headerlink" title="flex-shrink  属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。"></a>flex-shrink  属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</h3><pre><code>flex-shrink: &lt;number&gt;; /* default 1 */
+</code></pre><h3 id="flex-basis-属性定义了在分配多余空间之前，项目占据的主轴空间（main-size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。"><a href="#flex-basis-属性定义了在分配多余空间之前，项目占据的主轴空间（main-size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。" class="headerlink" title="flex-basis  属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。"></a>flex-basis  属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</h3><pre><code>flex-basis: &lt;length&gt; | auto; /* default auto */
+</code></pre><h3 id="flex-属性是flex-grow-flex-shrink-和-flex-basis的简写，默认值为0-1-auto。后两个属性可选。"><a href="#flex-属性是flex-grow-flex-shrink-和-flex-basis的简写，默认值为0-1-auto。后两个属性可选。" class="headerlink" title="flex  属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。"></a>flex  属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</h3><pre><code>flex: none | [ &lt;&apos;flex-grow&apos;&gt; &lt;&apos;flex-shrink&apos;&gt;? || &lt;&apos;flex-basis&apos;&gt; ]
+</code></pre><h3 id="align-self-属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"><a href="#align-self-属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。" class="headerlink" title="align-self  属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"></a>align-self  属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</h3><pre><code>align-self: auto | flex-start | flex-end | center | baseline | stretch;
+</code></pre><h3 id="FIEX布局简单应用"><a href="#FIEX布局简单应用" class="headerlink" title="FIEX布局简单应用"></a>FIEX布局简单应用</h3><p>1.解决了完美居中</p>
+<p><img src="/2019/02/24/FIEX布局/b.png" alt="tu"></p>
+<p>2.移动端布局<br><img src="/2019/02/24/FIEX布局/c.png" alt="tu"></p>
+<p>3.PC端布局<br><img src="/2019/02/24/FIEX布局/d.png" alt="tu"></p>
+</article><!-- lincense--><div class="license-wrapper"><p> <span>Author:  </span><a href="http://yoursite.com">杨小贤</a></p><p> <span>Link:  </span><a href="http://yoursite.com/2019/02/24/FIEX布局/">http://yoursite.com/2019/02/24/FIEX布局/</a></p><p> <span>Copyright:  </span><span>All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0">CC BY-NC-SA 3.0</a> unless stating additionally.</span></p></div><div class="post-paginator"><a class="prevSlogan" href="/2019/02/24/响应式布局/" title="响应式布局"><span>< PreviousPost</span><br><span class="prevTitle">响应式布局</span></a><a class="nextSlogan" href="/2019/02/20/CSS层叠上下文/" title="CSS层叠上下文"><span>NextPost ></span><br><span class="nextTitle">CSS层叠上下文</span></a><div class="clear"></div></div><div id="comment"></div></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><div class="toc-wrapper" style="top: 70vh;"><div class="toc-catalog"><i class="fa fa-list"> </i><span>CATALOG</span></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FLEX布局"><span class="toc-number">1.</span> <span class="toc-text">FLEX布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#容器的属性"><span class="toc-number">1.1.</span> <span class="toc-text">容器的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-flex-direction-属性决定主轴的方向（即项目的排列方向）"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. flex-direction  属性决定主轴的方向（即项目的排列方向）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-flex-wrap-属性-默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. flex-wrap  属性 默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-flex-flow-属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row-nowrap。"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.flex-flow  属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-justify-content-属性定义了项目在主轴上的对齐方式。"><span class="toc-number">1.1.4.</span> <span class="toc-text">4.justify-content  属性定义了项目在主轴上的对齐方式。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-align-items-属性定义项目在交叉轴上如何对齐。"><span class="toc-number">1.1.5.</span> <span class="toc-text">5.align-items  属性定义项目在交叉轴上如何对齐。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-align-content-属性"><span class="toc-number">1.1.6.</span> <span class="toc-text">6.align-content  属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目的属性"><span class="toc-number">1.2.</span> <span class="toc-text">项目的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#order-属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。"><span class="toc-number">1.2.1.</span> <span class="toc-text">order  属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-grow-属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。"><span class="toc-number">1.2.2.</span> <span class="toc-text">flex-grow  属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-shrink-属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。"><span class="toc-number">1.2.3.</span> <span class="toc-text">flex-shrink  属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-basis-属性定义了在分配多余空间之前，项目占据的主轴空间（main-size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。"><span class="toc-number">1.2.4.</span> <span class="toc-text">flex-basis  属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-属性是flex-grow-flex-shrink-和-flex-basis的简写，默认值为0-1-auto。后两个属性可选。"><span class="toc-number">1.2.5.</span> <span class="toc-text">flex  属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-self-属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。"><span class="toc-number">1.2.6.</span> <span class="toc-text">align-self  属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FIEX布局简单应用"><span class="toc-number">1.2.7.</span> <span class="toc-text">FIEX布局简单应用</span></a></li></ol></li></ol></li></ol></div><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>

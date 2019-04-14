@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="杨小贤"><meta name="renderer" content="webkit"><meta name="copyright" content="杨小贤"><meta name="keywords" content="千城"><meta name="description" content="彪悍的人生不需要解释！"><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>请求与响应 · Mr.Yang Blog</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/1.jpg"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
+    }
+    return function(){
+      return ret;
+    };
+  })();
+
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
+    }
+
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
+    }
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
+
+
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script></head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/1.jpg"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">杨小贤</div><div class="profile-signature">for me</div><div class="friends"><div>FRIENDS</div><span><a href="//github.com/chenxingyu0830" target="_black">friendA</a></span><span><a href="//github.com/Longlongyu" target="_black">friendB</a></span><span><a href="//github.com/" target="_black">friendC</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a>Mr.Yang's Blog</a></div><div class="intro-nav-label-box"><a href="/">首页</a><a href="/about/">关于</a><a href="/tags/">标签</a><a href="/categories/">分类</a><a href="/archives/">归档</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">首页</a><a href="/about/">关于</a><a href="/tags/">标签</a><a href="/categories/">分类</a><a href="/archives/">归档</a></div></i><div class="clear"></div></section></nav><h1 class="post-title">请求与响应</h1><div class="post-intros"><div class="post-intro-meta"><span class="post-intro-time"><i class="post-intro-calendar fa fa-calendar"></i><span>2019-01-28</span></span><span class="post-intro-tags"><a class="intro-tag fa fa-tag" href="javascript:void(0)" date-tags="学习"> 学习</a></span></div></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><article class="article-entry" id="post"><h1 id="Server-Client-HTTP"><a href="#Server-Client-HTTP" class="headerlink" title="Server + Client + HTTP"></a>Server + Client + HTTP</h1><p><img src="https://raw.githubusercontent.com/yangxianpei001/image/master/a.png" alt="图片"></p>
+<pre><code>        服务器与浏览器的交
+
+1.浏览器负责发起请求
+2.服务器在 80 端口接收请求
+3.服务器负责返回内容（响应）
+4.浏览器负责下载响应内容
+</code></pre><p>HTTP 的作用就是指导浏览器和服务器如何进行沟通.</p>
+<h1 id="请求示例"><a href="#请求示例" class="headerlink" title="请求示例"></a>请求示例</h1><p>curl -s -v -H “Frank: xxx” – “<a href="https://www.baidu.com&quot;" target="_blank" rel="noopener">https://www.baidu.com&quot;</a><br><img src="https://video.jirengu.com/FnhIuZBj-bNFEkSqvLSdNXo_em5x" alt="图片"><br>        用 curl 创造一个请求，并得到响应<br>请求的内容为</p>
+<p>GET / HTTP/1.1<br>Host: <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br>User-Agent: curl/7.54.0<br>Accept: <em>/</em><br>Frank: xxx</p>
+<p>curl -X POST -s -v -H “Frank: xxx” – “<a href="https://www.baidu.com&quot;" target="_blank" rel="noopener">https://www.baidu.com&quot;</a></p>
+<p>请求的内容为</p>
+<p>POST / HTTP/1.1<br>Host: <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br>User-Agent: curl/7.54.0<br>Accept: <em>/</em><br>Frank: xxx</p>
+<p>curl -X POST -d “1234567890” -s -v -H “Frank: xxx” – “<a href="https://www.baidu.com&quot;" target="_blank" rel="noopener">https://www.baidu.com&quot;</a></p>
+<p>请求的内容为</p>
+<p>POST / HTTP/1.1<br>Host: <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br>User-Agent: curl/7.54.0<br>Accept: <em>/</em><br>Frank: xxx<br>Content-Length: 10<br>Content-Type: application/x-www-form-urlencoded</p>
+<p>1234567890</p>
+<h1 id="请求的格式"><a href="#请求的格式" class="headerlink" title="请求的格式"></a>请求的格式</h1><p>(前面序号代表是第几步,按序号查询)<br>1 动词 路径 协议/版本<br>2 Key1: value1<br>2 Key2: value2<br>2 Key3: value3<br>2 Content-Type: application/x-www-form-urlencoded<br>2 Host: <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br>2 User-Agent: curl/7.54.0<br>3<br>4 要上传的数据</p>
+<pre><code>0.请求最多包含四部分，最少包含三部分。（也就是说第四部分可以为空）
+   1.第三部分永远都是一个回车（\n）
+2.动词有 GET POST PUT PATCH DELETE HEAD OPTIONS 等
+3.这里的路径包括「查询参数」，但不包括「锚点」
+4.如果你没有写路径，那么路径默认为 /
+5.第 2 部分中的 Content-Type 标注了第 4 部分的格式
+</code></pre><h1 id="用-Chrome-浏览器-发请求"><a href="#用-Chrome-浏览器-发请求" class="headerlink" title="用 Chrome(浏览器) 发请求"></a>用 Chrome(浏览器) 发请求</h1><pre><code>1.打开 Network
+2.地址栏输入网址
+3.在 Network 点击，查看 request，点击「view source」
+4.点击「view source」
+5.点击「view source」
+6.点击「view source」
+7.终于点了？可以看到请求的前三部分了
+8.如果有请求的第四部分，那么在 FormData 或 Payload 里面可以看到
+</code></pre><h1 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h1><p>请求了之后，应该都能得到一个响应，除非断网了，或者服务器宕机了。<br>响应示例</p>
+<p>上面三个请求示例，前两个请求对应的响应分别为</p>
+<p>HTTP/1.1 200 OK<br>Accept-Ranges: bytes<br>Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform<br>Connection: Keep-Alive<br>Content-Length: 2443<br>Content-Type: text/html<br>Date: Tue, 10 Oct 2017 09:14:05 GMT<br>Etag: “5886041d-98b”<br>Last-Modified: Mon, 23 Jan 2017 13:24:45 GMT<br>Pragma: no-cache<br>Server: bfe/1.0.8.18<br>Set-Cookie: BDORZ=27315; max-age=86400; domain=.baidu.com; path=/</p>
+<p>&lt;!DOCTYPE html&gt;<br><!--STATUS OK--><html> <head><meta name="generator" content="Hexo 3.8.0"> 后面太长，省略了……</head></html></p>
+<p>HTTP/1.1 302 Found<br>Connection: Keep-Alive<br>Content-Length: 17931<br>Content-Type: text/html<br>Date: Tue, 10 Oct 2017 09:19:47 GMT<br>Etag: “54d9749e-460b”<br>Server: bfe/1.0.8.18</p>
+<p><html></html></p>
+<p><head><meta name="generator" content="Hexo 3.8.0"></head></p>
+<p><meta http-equiv="content-type" content="text/html;charset=utf-8"> 后面太长，省略了……</p>
+<pre><code>GET 请求和 POST 请求对应的响应可以一样，也可以不一样
+响应的第四部分可以很长很长很长
+</code></pre><h1 id="响应的格式"><a href="#响应的格式" class="headerlink" title="响应的格式"></a>响应的格式</h1><p>1 协议/版本号 状态码 状态解释<br>2 Key1: value1<br>2 Key2: value2<br>2 Content-Length: 17931<br>2 Content-Type: text/html<br>3<br>4 要下载的内容</p>
+<pre><code>状态码要背，是服务器对浏览器说的话
+    1xx 不常用
+    2xx 表示成功
+    3xx 表示滚吧
+    4xx 表示你丫错了
+    5xx 表示好吧，我错了
+状态解释没什么用
+第 2 部分中的 Content-Type 标注了第 4 部分的格式
+第 2 部分中的 Content-Type 遵循 MIME 规范
+</code></pre><h1 id="用-Chrome-查看响应"><a href="#用-Chrome-查看响应" class="headerlink" title="用 Chrome 查看响应"></a>用 Chrome 查看响应</h1><pre><code>打开 Network
+输入网址
+选中第一个响应
+查看 Response Headers，点击「view source」，点击「view source」，点击「view source」
+你会看到响应的前两部分
+查看 Response 或者 Preview，你会看到响应的第 4 部分
+</code></pre></article><!-- lincense--><div class="license-wrapper"><p> <span>Author:  </span><a href="http://yoursite.com">杨小贤</a></p><p> <span>Link:  </span><a href="http://yoursite.com/2019/01/28/请求与响应/">http://yoursite.com/2019/01/28/请求与响应/</a></p><p> <span>Copyright:  </span><span>All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/3.0">CC BY-NC-SA 3.0</a> unless stating additionally.</span></p></div><div class="post-paginator"><a class="prevSlogan" href="/2019/01/31/如何购买域名/" title="如何购买域名"><span>< PreviousPost</span><br><span class="prevTitle">如何购买域名</span></a><a class="nextSlogan" href="/2019/01/26/github如何上传文件/" title="github如何上传文件"><span>NextPost ></span><br><span class="nextTitle">github如何上传文件</span></a><div class="clear"></div></div><div id="comment"></div></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><div class="toc-wrapper" style="top: 70vh;"><div class="toc-catalog"><i class="fa fa-list"> </i><span>CATALOG</span></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Server-Client-HTTP"><span class="toc-number">1.</span> <span class="toc-text">Server + Client + HTTP</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#请求示例"><span class="toc-number">2.</span> <span class="toc-text">请求示例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#请求的格式"><span class="toc-number">3.</span> <span class="toc-text">请求的格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#用-Chrome-浏览器-发请求"><span class="toc-number">4.</span> <span class="toc-text">用 Chrome(浏览器) 发请求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#响应"><span class="toc-number">5.</span> <span class="toc-text">响应</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#响应的格式"><span class="toc-number">6.</span> <span class="toc-text">响应的格式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#用-Chrome-查看响应"><span class="toc-number">7.</span> <span class="toc-text">用 Chrome 查看响应</span></a></li></ol></div><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>

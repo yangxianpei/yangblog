@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>千城</title>
+  
+  <subtitle>博客新手，前端新人，多多指教！</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-03-15T14:28:35.452Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>杨小贤</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基本的各类排序</title>
+    <link href="http://yoursite.com/2019/03/15/%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%90%84%E7%B1%BB%E6%8E%92%E5%BA%8F/"/>
+    <id>http://yoursite.com/2019/03/15/基本的各类排序/</id>
+    <published>2019-03-15T14:23:55.000Z</published>
+    <updated>2019-03-15T14:28:35.452Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;冒泡排序&quot;&gt;&lt;a href=&quot;#冒泡排序&quot; class=&quot;headerlink&quot; title=&quot;冒泡排序&quot;&gt;&lt;/a&gt;冒泡排序&lt;/h3&gt;&lt;p&gt;O(n * n)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for (let i; i &amp;lt; a.length; i++) { 
+        
+      
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS原型与原型链</title>
+    <link href="http://yoursite.com/2019/03/10/JS%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    <id>http://yoursite.com/2019/03/10/JS原型与原型链/</id>
+    <published>2019-03-10T14:35:04.000Z</published>
+    <updated>2019-03-10T15:32:21.561Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、函数对象&quot;&gt;&lt;a href=&quot;#一、函数对象&quot; class=&quot;headerlink&quot; title=&quot;一、函数对象&quot;&gt;&lt;/a&gt;一、函数对象&lt;/h2&gt;&lt;p&gt;  
+        
+      
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>普通类型和复杂类型的区别</title>
+    <link href="http://yoursite.com/2019/03/06/%E6%99%AE%E9%80%9A%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/2019/03/06/普通类型和复杂类型的区别/</id>
+    <published>2019-03-06T12:16:37.000Z</published>
+    <updated>2019-03-06T12:49:11.498Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;普通类型和复杂类型区别&quot;&gt;&lt;a href=&quot;#普通类型和复杂类型区别&quot; class=&quot;headerlink&quot; title=&quot;普通类型和复杂类型区别&quot;&gt;&lt;/a&gt;普通类型和复杂类型区别&lt;/h2&gt;&lt;p&gt;数据区分为 Stack（栈内存） 和
+        
+      
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS的数据类型及转换</title>
+    <link href="http://yoursite.com/2019/03/06/JS%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E8%BD%AC%E6%8D%A2/"/>
+    <id>http://yoursite.com/2019/03/06/JS的数据类型及转换/</id>
+    <published>2019-03-06T11:37:34.000Z</published>
+    <updated>2019-03-06T12:05:55.614Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;js中的数据类型&quot;&gt;&lt;a href=&quot;#js中的数据类型&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>响应式布局</title>
+    <link href="http://yoursite.com/2019/02/24/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/"/>
+    <id>http://yoursite.com/2019/02/24/响应式布局/</id>
+    <published>2019-02-24T14:54:43.000Z</published>
+    <updated>2019-02-24T15:40:51.689Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;移动端页面的做法&quot;&gt;&lt;a href=&quot;#移动端页面的做法&quot; class=&quot;headerlink&quot; title=&quot;移动端页面的做法&quot;&gt;&lt;/a&gt;移动端页面的做法&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;学会media query&lt;/li&gt;
+&lt;li&gt;准备要PC端
+        
+      
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FIEX布局</title>
+    <link href="http://yoursite.com/2019/02/24/FIEX%E5%B8%83%E5%B1%80/"/>
+    <id>http://yoursite.com/2019/02/24/FIEX布局/</id>
+    <published>2019-02-24T14:17:06.000Z</published>
+    <updated>2019-02-24T14:52:54.864Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;FLEX布局&quot;&gt;&lt;a href=&quot;#FLEX布局&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS层叠上下文</title>
+    <link href="http://yoursite.com/2019/02/20/CSS%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87/"/>
+    <id>http://yoursite.com/2019/02/20/CSS层叠上下文/</id>
+    <published>2019-02-20T15:33:41.000Z</published>
+    <updated>2019-02-21T10:51:31.874Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;CSS层叠上下文&quot;&gt;&lt;a href=&quot;#CSS层叠上下文&quot; class=&quot;headerlink&quot; title=&quot;CSS层叠上下文&quot;&gt;&lt;/a&gt;CSS层叠上下文&lt;/h1&gt;&lt;p&gt;参考张鑫旭博客:&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS常见布局</title>
+    <link href="http://yoursite.com/2019/02/16/CSS%E5%B8%B8%E8%A7%81%E5%B8%83%E5%B1%80/"/>
+    <id>http://yoursite.com/2019/02/16/CSS常见布局/</id>
+    <published>2019-02-16T07:19:10.000Z</published>
+    <updated>2019-02-16T08:53:13.761Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;左右布局&quot;&gt;&lt;a href=&quot;#左右布局&quot; class=&quot;headerlink&quot; title=&quot;左右布局&quot;&gt;&lt;/a&gt;左右布局&lt;/h1&gt;&lt;p&gt;1.如果你遇到几个块元素，因块元素的特点是从上到下，另起一行。&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML小常识</title>
+    <link href="http://yoursite.com/2019/02/01/HTML%E5%B0%8F%E5%B8%B8%E8%AF%86/"/>
+    <id>http://yoursite.com/2019/02/01/HTML小常识/</id>
+    <published>2019-02-01T05:55:51.000Z</published>
+    <updated>2019-02-18T10:34:55.973Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;根元素&quot;&gt;&lt;a href=&quot;#根元素&quot; class=&quot;headerlink&quot; title=&quot;根元素&quot;&gt;&lt;/a&gt;根元素&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;html     代表 HTML 或 XHTML
+        
+      
+    
+    </summary>
+    
+      <category term="HTML" scheme="http://yoursite.com/categories/HTML/"/>
+    
+    
+      <category term="HTML" scheme="http://yoursite.com/tags/HTML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何购买域名</title>
+    <link href="http://yoursite.com/2019/01/31/%E5%A6%82%E4%BD%95%E8%B4%AD%E4%B9%B0%E5%9F%9F%E5%90%8D/"/>
+    <id>http://yoursite.com/2019/01/31/如何购买域名/</id>
+    <published>2019-01-31T13:09:23.000Z</published>
+    <updated>2019-02-01T05:32:03.961Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;买域名步骤&quot;&gt;&lt;a href=&quot;#买域名步骤&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>请求与响应</title>
+    <link href="http://yoursite.com/2019/01/28/%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94/"/>
+    <id>http://yoursite.com/2019/01/28/请求与响应/</id>
+    <published>2019-01-28T13:28:31.000Z</published>
+    <updated>2019-02-02T12:22:19.278Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Server-Client-HTTP&quot;&gt;&lt;a href=&quot;#Server-Client-HTTP&quot; class=&quot;headerlink&quot; title=&quot;Server + Client + HTTP&quot;&gt;&lt;/a&gt;Server + Client +
+        
+      
+    
+    </summary>
+    
+      <category term="http" scheme="http://yoursite.com/categories/http/"/>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>github如何上传文件</title>
+    <link href="http://yoursite.com/2019/01/26/github%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2019/01/26/github如何上传文件/</id>
+    <published>2019-01-26T08:17:18.000Z</published>
+    <updated>2019-02-01T05:31:28.898Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;github上传文件&quot;&gt;&lt;a href=&quot;#github上传文件&quot; class=&quot;headerlink&quot; title=&quot;github上传文件&quot;&gt;&lt;/a&gt;github上传文件&lt;/h1&gt;&lt;p&gt;1.用cd进入该文件夹。&lt;/p&gt;
+&lt;p&gt;2.$git status -sb
+        
+      
+    
+    </summary>
+    
+      <category term="github" scheme="http://yoursite.com/categories/github/"/>
+    
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+</feed>

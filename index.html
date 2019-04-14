@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="杨小贤"><meta name="renderer" content="webkit"><meta name="copyright" content="杨小贤"><meta name="keywords" content="千城"><meta name="description" content="彪悍的人生不需要解释！"><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>Mr.Yang Blog</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/1.jpg"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
+    }
+    return function(){
+      return ret;
+    };
+  })();
+
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
+    }
+
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
+    }
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
+
+
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script></head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/1.jpg"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">杨小贤</div><div class="profile-signature">for me</div><div class="friends"><div>FRIENDS</div><span><a href="//github.com/chenxingyu0830" target="_black">friendA</a></span><span><a href="//github.com/Longlongyu" target="_black">friendB</a></span><span><a href="//github.com/" target="_black">friendC</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a>Mr.Yang's Blog</a></div><div class="intro-nav-label-box"><a href="/">首页</a><a href="/about/">关于</a><a href="/tags/">标签</a><a href="/categories/">分类</a><a href="/archives/">归档</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">首页</a><a href="/about/">关于</a><a href="/tags/">标签</a><a href="/categories/">分类</a><a href="/archives/">归档</a></div></i><div class="clear"></div></section></nav><h1>Mr.Yang's Blog</h1><h5>Welcome to my Blog!</h5><div class="intro-social"><a class="fa fa-envelope" href="mailto:1013128101@qq.com" title="email"></a><a class="fa fa-github" href="//github.com/yangxianpei" target="_blank" title="github"></a><a class="fa fa-rss" href="/atom.xml" target="_blank" title="rss"></a></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><section id="recent-posts"><div class="recent-post-item"><div class="post-title"><a href="/2019/03/15/基本的各类排序/">基本的各类排序</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2019-03-15T14:23:55.000Z">2019-03-15</time></div><div class="recent-post-content">冒泡排序O(n * n)
+for (let i; i &lt; a.length; i++) {  //n
+  for (let j; j &lt; i - j; j++)   // n
+    if (a[i] &gt; a[i + 1]) {    
+        int temp = a[i + 1];
+        a[i] = temp;
+     }
+  } 
+快速排序 O(n log2 n)
+快速排序思想其实还是挺简单的，分三步走：
+　　1、在数组中找到基准点，其他数与之比较。
+　　2、建立两个数组，小于基准点的数存储在左边数组，大于基准点的数存储在右边数组。
+　　3、拼接数 ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="Javascript"> Javascript</a></div><div class="read-more"><a class="more" href="/2019/03/15/基本的各类排序/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2019/03/10/JS原型与原型链/">JS原型与原型链</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2019-03-10T14:35:04.000Z">2019-03-10</time></div><div class="recent-post-content">一、函数对象   所有引用类型（函数,数组，对象）都拥有proto属性（隐式属性）。
+   所有函数拥有prototype属性（显示原型）(仅显函数)
+   原型对象：拥有prototype属性的对象，在定义函数时就被创建.
+    //创建构造函数
+     function Word(words){
+        this.words = words;
+    }
+    Word.prototype = {
+            alert(){
+        alert(this.words);
+            }
+    }
+    //创建实例
+var w = new ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="Javascript"> Javascript</a></div><div class="read-more"><a class="more" href="/2019/03/10/JS原型与原型链/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2019/03/06/普通类型和复杂类型的区别/">普通类型和复杂类型的区别</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2019-03-06T12:16:37.000Z">2019-03-06</time></div><div class="recent-post-content">普通类型和复杂类型区别数据区分为 Stack（栈内存） 和 Heap（堆内存）
+而普通类型的数据直接存在Stack中.
+复杂类型的数据是把 Heap 地址存在 Stack 里.
+内存面试题
+
+深复制和浅复制的区别var a = 1
+var b = a
+b = 2 //这个时候改变 b
+a 完全不受 b 的影响
+
+那么我们就说这是一个深复制
+对于简单类型的数据来说，赋值就是深拷贝。对于复杂类型的数据（对象）来说，才要区分浅拷贝和深拷贝。
+
+这是一个浅拷贝的例子
+var a = {name: &apos;frank&apos;}
+var b = a
+b.name = &apos;b&apos;
+a ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="Javascript"> Javascript</a></div><div class="read-more"><a class="more" href="/2019/03/06/普通类型和复杂类型的区别/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2019/03/06/JS的数据类型及转换/">JS的数据类型及转换</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2019-03-06T11:37:34.000Z">2019-03-06</time></div><div class="recent-post-content">js中的数据类型js中数据类型有7种：number,string,boolean,symbol,null,undefined,object.前6种是简单类型，object为复杂类型。
+一、numberNumber数据类型指的是数字，可以为整型，也可以是浮点数。如
+
+var a=12,b=12.5;
+
+Number转string 用tostring()或 数字后加个空字符串（1+ ‘ ‘）或全局指定某对面转如
+
+console.log((1).tostring)
+1+ ‘ ‘
+window.String(1)
+
+二、string字符串由零个或多个字符构成，字符包括字母，数字，标点符号和空格;需要 ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="Javascript"> Javascript</a></div><div class="read-more"><a class="more" href="/2019/03/06/JS的数据类型及转换/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2019/02/24/响应式布局/">响应式布局</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2019-02-24T14:54:43.000Z">2019-02-24</time></div><div class="recent-post-content">移动端页面的做法
+学会media query
+准备要PC端 移动端设计图
+学会隐藏元素
+手机端在HTML里加个mata:vp
+手机端的交互跟PC端不一样
+
+动态REM 手机专用的自适应方案首先了解常用的 CSS长度单位（详情查阅 length CSS mdn）：
+
+px像素 
+pt
+em（一个M的宽度或者一个汉字的宽度）
+ex(一个X的高度）
+vh(viewport 100vh=视口高度）
+vw（100vw=视口宽度）
+rem (root em)根元素的font-size 
+
+我们可以在html用script写上这句话意思是用js动态的让屏幕大小=rem 这样我们就可以设元素用百分比来保持布局 ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="CSS"> CSS</a></div><div class="read-more"><a class="more" href="/2019/02/24/响应式布局/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2019/02/24/FIEX布局/">FIEX布局</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2019-02-24T14:17:06.000Z">2019-02-24</time></div><div class="recent-post-content">FLEX布局
+块级布局侧重垂直方向，行内布局侧重水平方向，FLEX布局是与方向无关的。
+FLEX布局可以实现空间自动分配，自动对齐（flexible：弹性）
+FLEX适用于简单的线性布局，更复杂的布局要交给grid布局
+
+阮一峰博客完美全解（http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html）
+
+容器的属性
+flex-direction 
+flex-wrap
+flex-flow
+justify-content
+align-items
+align-content
+
+1. flex-direction  属性决定主轴的方向（即项目的排列 ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="CSS"> CSS</a></div><div class="read-more"><a class="more" href="/2019/02/24/FIEX布局/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2019/02/20/CSS层叠上下文/">CSS层叠上下文</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2019-02-20T15:33:41.000Z">2019-02-20</time></div><div class="recent-post-content">CSS层叠上下文参考张鑫旭博客:http://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/
+层叠顺序CSS各个元素的层次依次从左到右注意如果元素被position：后会在第7层看下面顺序：
+
+1.负z-index:
+2.background
+3.border
+4.块级
+5.浮动
+6.内联
+7.脱离文档流
+8.正z-index:
+
+这是以html根元素为层叠作用域！意思是最下层是html；
+若我们改变以html根元素上测试，在同级情况下 默认 z-index：auto 遵循一 ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="CSS"> CSS</a></div><div class="read-more"><a class="more" href="/2019/02/20/CSS层叠上下文/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2019/02/16/CSS常见布局/">CSS常见布局</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2019-02-16T07:19:10.000Z">2019-02-16</time></div><div class="recent-post-content">左右布局1.如果你遇到几个块元素，因块元素的特点是从上到下，另起一行。 输入 display: inline-block;（添加 vertical-align: top否则会有一条BUG空隙多出来。）;把它变成内联元素即可做到左右布局.
+2.用float:left来让两元素左右布局,然后在它们父元素class 里面加上 clearfix若不加会有bug出现请务必加上。注意 clearfix写法很多 但是大家还是写成这种比较好。
+ .clearfix::after{
+content:&apos;&apos;;
+
+display: block;
+
+clear: both;
+}
+左中右布局1.若是三 ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="CSS"> CSS</a></div><div class="read-more"><a class="more" href="/2019/02/16/CSS常见布局/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2019/02/01/HTML小常识/">HTML小常识</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2019-02-01T05:55:51.000Z">2019-02-01</time></div><div class="recent-post-content">根元素
+html     代表 HTML 或 XHTML 文档的根。其他所有元素必须是这个元素的子节点
+
+文档数据
+head     代表关于文档元数据的一个集合，包括脚本或样式表的链接或内容
+title    定义文档的标题
+base     定义页面上相对URL的基准URL
+link    用于链接外部的CSS到该文档
+meta    定义其他HTML元素无法描述的数据
+style 用于内联CSS脚本
+script     定义一个内联脚本或链接到外部脚本。脚本语言是 JavaScript
+noscript     定义当浏览器不支持脚本时显示的替代文字
+template     通过 J ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="HTML"> HTML</a></div><div class="read-more"><a class="more" href="/2019/02/01/HTML小常识/#more">ReadMore</a></div><hr></div><div class="recent-post-item"><div class="post-title"><a href="/2019/01/31/如何购买域名/">如何购买域名</a></div><div class="post-time"><i class="fa fa-table"></i><time datetime="2019-01-31T13:09:23.000Z">2019-01-31</time></div><div class="recent-post-content">买域名步骤1.向国内服务商购买，不过你需要备案（备案就是把你的照片、姓名、住址和手机号告诉管理机构）
+2.向国外服务商购买，不需要备案(推荐2)
+这里我们演示第二种方法:
+1.进入 namesilo.com 搜索一个你喜欢的域名
+2.不同的三级域名,不同的价格可以选择,选择完后点击蓝色按钮REGISTER CHECKED DOMAINS.
+3.选择这个privacy Setting 来对外显示个人信息
+4.选择set all years to 来选择购买几年
+5.别急着结账,有一个地方可以输入优惠码（如图）优惠码去百度或者谷歌搜索关键字 namesilo 优惠码
+6.若你没账号请按上面要求书写 ...</div><div class="recent-post-tags"><a class="post-tag fa fa-tag" href="javascript:void(0)" date-tags="学习"> 学习</a></div><div class="read-more"><a class="more" href="/2019/01/31/如何购买域名/#more">ReadMore</a></div><hr></div></section><nav class="cxo-page-nav"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">NEXT &#62;</a></nav></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a href="http://hexo.io"><span>Hexo</span></a><span> | theme </span><a href="https://github.com/Longlongyu/hexo-theme-Cxo"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>
